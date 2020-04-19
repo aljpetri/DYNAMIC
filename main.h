@@ -4,9 +4,8 @@
 //
 //  holds all inclusions needed for the algorithm
 //
-//  author: Alexander Petri
 ////////////////////////////////////////////////////////////////////////////////
-
+//  author: Alexander Petri
 
 #include <algorithm>
 
