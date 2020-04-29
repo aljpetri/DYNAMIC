@@ -39,29 +39,34 @@ int generate_random_integer_bounded(int& left,int& right){
 */
 string generate_random_sequence(int length){
   //std::default_random_engine generator;
-  std::string sequence="";
+  char* temp=new char[length];
   for(int j=0;j<length;j++){
     int left=0,right=3;
     int basenr=generate_random_integer_bounded(left,right);
-    std::string base="Z";
+    char base{};
     switch(basenr){
       case 0:
-        base="A";
+        base='A';
         break;
       case 1:
-        base="C";
+        base='C';
         break;
       case 2:
-        base="G";
+        base='G';
         break;
       case 3:
-        base="T";
+        base='T';
+        break;
+      default:
+        base='Z';
         break;
     }
-    sequence=sequence+base;
+    temp[j]=base;
   }
+  std::string sequence=temp;
 return sequence;
 }
+
 /*
 * Function, which generates random pseudo vcf entries
 *
@@ -94,3 +99,4 @@ return variants;
 
 
 #endif
+
