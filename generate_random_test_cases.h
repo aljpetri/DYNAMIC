@@ -57,9 +57,6 @@ string generate_random_sequence(int length){
       case 3:
         base='T';
         break;
-      default:
-        base='Z';
-        break;
     }
     temp[j]=base;
   }
@@ -89,7 +86,11 @@ vector<Variant> generate_random_variations(string& sequence, int& num_variations
       int possible_length=right-position;
       original_var_length=generate_random_integer_bounded(zero, possible_length);
       int new_var_length = generate_random_integer_bounded(zero,max);
-      std::string variant_seq=generate_random_sequence(new_var_length);
+      std::string variant_seq="";
+      if(new_var_length>0){
+        variant_seq=generate_random_sequence(new_var_length);
+        variant_seq.erase(new_var_length);
+      }
       prev_variant_end=position+original_var_length+1;
       Variant this_variant=Variant(position, original_var_length, new_var_length, variant_seq);
       variants.push_back(this_variant);
@@ -99,4 +100,3 @@ return variants;
 
 
 #endif
-
