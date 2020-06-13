@@ -39,7 +39,7 @@ int generate_random_integer_bounded(int& left,int& right){
 */
 string generate_random_sequence(int length){
   //std::default_random_engine generator;
-  char* temp=new char[length];
+  char temp [length];
   for(int j=0;j<length;j++){
     int left=0,right=3;
     int basenr=generate_random_integer_bounded(left,right);
@@ -60,6 +60,7 @@ string generate_random_sequence(int length){
     }
     temp[j]=base;
   }
+  temp[length]='\0';
   std::string sequence=temp;
 return sequence;
 }
